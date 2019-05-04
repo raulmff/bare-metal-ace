@@ -1,1 +1,0 @@
-cmd_examples/standalone/smc911x_eeprom := arm-none-eabi-ld.bfd   -g -Ttext 0xc100000 -o examples/standalone/smc911x_eeprom -e smc911x_eeprom examples/standalone/smc911x_eeprom.o examples/standalone/libstubs.o arch/arm/lib/lib.a

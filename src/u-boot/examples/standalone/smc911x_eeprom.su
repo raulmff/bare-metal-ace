@@ -1,8 +1,0 @@
-smc911x.h:22:19:__smc911x_reg_read	0	static
-smc911x.h:29:20:__smc911x_reg_write	0	static
-smc911x.h:404:12:smc911x_get_mac_csr	16	static
-smc911x.h:416:13:smc911x_set_mac_csr	16	static
-smc911x_eeprom.c:69:12:do_eeprom_cmd	16	static
-smc911x_eeprom.c:92:11:read_eeprom_reg	8	static
-smc911x_eeprom.c:131:14:skip_space	0	static
-smc911x_eeprom.c:318:5:smc911x_eeprom	120	static
