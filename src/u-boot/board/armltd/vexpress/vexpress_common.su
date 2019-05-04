@@ -1,0 +1,9 @@
+vexpress_common.c:50:5:board_init	8	static
+vexpress_common.c:63:5:board_eth_init	0	static
+vexpress_common.c:72:5:cpu_mmc_init	16	static
+vexpress_common.c:106:5:dram_init	8	static
+vexpress_common.c:113:5:dram_init_banksize	8	static
+vexpress_common.c:152:5:v2m_cfg_write	0	static
+vexpress_common.c:173:6:reset_cpu	8	static
+vexpress_common.c:179:6:lowlevel_init	0	static
+vexpress_common.c:183:7:get_board_rev	0	static
