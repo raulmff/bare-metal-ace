@@ -2,6 +2,8 @@
 .equ MODE_FIQ, 0x11
 .equ MODE_IRQ, 0x12
 .equ MODE_SVC, 0x13
+.equ TTB_COHERENT, 0x00014c06 /* Template descriptor for coherent memory */
+.equ TTB_NONCOHERENT, 0x00000c1e /* Template descriptor for non-coherent memory */
 
 .section .vector_table, "x"
 .global _Reset
@@ -24,6 +26,11 @@ Reset_Handler:
     ldr sp, =_fiq_stack_end
     movw r0, #0xFEFE
     movt r0, #0xFEFE
+
+    mrc p15, 0, r1, c1, c0, 0   /* Read Control Register configuration data */
+    orr r1, r1, #(0x800)    /* Disable I Cache */
+    orr  r1, r1, #(0x8)    /* @ Disable D Cache */
+    mcr p15, 0, r1, c1, c0, 0   /* Write Control Register configuration data */
 
 fiq_loop:
     cmp r1, sp
@@ -73,6 +80,21 @@ bss_loop:
 
     bl main
     b Abort_Exception
+
+enable_scu:
+    mrc p15, 4, r0, c15, c0, 0  /* Read periph base address */
+    ldr r1, [r0, #0x0]          /* Read the SCU Control Register */
+    orr r1, r1, #0x1            /* Set bit 0 (The Enable bit) */
+    str r1, [r0, #0x0]          /* Write back modifed value */
+    bx  lr
+
+enable_caches:
+    mrc p15, 0, r1, c1, c0, 0   /* Read Control Register configuration data */
+    orr r1, r1, #(0x1 << 12)    /* Disable I Cache */
+    orr  r1, r1, #(0x1 << 2)    /* @ Disable D Cache */
+    mcr p15, 0, r1, c1, c0, 0   /* Write Control Register configuration data */
+
+.export enable_caches
 
 Abort_Exception:
     swi 0xFF
