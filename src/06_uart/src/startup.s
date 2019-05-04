@@ -25,6 +25,11 @@ Reset_Handler:
     movw r0, #0xFEFE
     movt r0, #0xFEFE
 
+    mcr     p15, 0, r0, c1, c0, 0     //Read current control reg
+    orr     r4, r4, #0x4              //Set M bit
+    orr     r4, r4, #0x800            //Set M bit
+    mcr     p15, 0, r0, c1, c0, 0     //Write reg back
+
 fiq_loop:
     cmp r1, sp
     strlt r0, [r1], #4
