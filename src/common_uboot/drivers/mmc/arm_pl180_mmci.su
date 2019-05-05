@@ -1,0 +1,5 @@
+arm_pl180_mmci.c:346:12:mmc_host_reset	0	static
+arm_pl180_mmci.c:282:13:host_set_ios	32	static
+arm_pl180_mmci.c:76:12:do_command	24	static
+arm_pl180_mmci.c:268:12:host_request	32	static
+arm_pl180_mmci.c:367:5:arm_pl180_mmci_init	16	static

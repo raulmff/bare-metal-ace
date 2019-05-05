@@ -1,0 +1,15 @@
+smc911x.h:22:19:__smc911x_reg_read	0	static
+smc911x.h:29:20:__smc911x_reg_write	0	static
+smc911x.h:416:13:smc911x_set_mac_csr	16	static
+smc911x.c:21:13:smc911x_handle_mac_address	16	static
+smc911x.c:192:12:smc911x_rx	32	static
+smc911x.c:147:12:smc911x_send	32	static
+smc911x.h:453:13:smc911x_reset	16	static
+smc911x.c:186:13:smc911x_halt	8	static
+smc911x.h:404:12:smc911x_get_mac_csr	16	static
+smc911x.c:51:12:smc911x_eth_phy_write	24	static
+smc911x.c:235:12:smc911x_miiphy_write	16	static
+smc911x.c:34:12:smc911x_eth_phy_read	24	static
+smc911x.c:221:12:smc911x_miiphy_read	24	static
+smc911x.c:128:12:smc911x_init	24	static
+smc911x.c:245:5:smc911x_initialize	16	static
